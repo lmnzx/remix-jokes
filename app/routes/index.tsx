@@ -1,14 +1,31 @@
 import type { LinksFunction } from "remix";
-import styleUrl from "../styles/index.css";
+import { Link } from "remix";
+import stylesUrl from "../styles/index.css";
 
 export const links: LinksFunction = () => {
-  return [{ rel: "stylesheet", href: styleUrl }];
+  return [
+    {
+      rel: "stylesheet",
+      href: stylesUrl,
+    },
+  ];
 };
 
-export default function IndexRoute() {
+export default function Index() {
   return (
-    <div>
-      <h3>Hello Index Route</h3>
+    <div className="container">
+      <div className="content">
+        <h1>
+          Remix <span>Jokes!</span>
+        </h1>
+        <nav>
+          <ul>
+            <li>
+              <Link to="jokes">Read Jokes</Link>
+            </li>
+          </ul>
+        </nav>
+      </div>
     </div>
   );
 }
